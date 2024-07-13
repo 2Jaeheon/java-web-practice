@@ -1,0 +1,309 @@
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 22:40:45.633 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.90
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Jun 14 2024 14:45:13 UTC
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.90.0
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Mac OS X
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     14.5
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          aarch64
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           /Users/leejaeheon/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          21.0.2+13-58
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 22:40:45.636 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.io=ALL-UNNAMED
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util=ALL-UNNAMED
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/conf/logging.properties
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Jun-2024 22:40:45.669 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Jun-2024 22:40:45.670 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+21-Jun-2024 22:40:45.670 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 22:40:45.670 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 22:40:45.670 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/temp
+21-Jun-2024 22:40:45.675 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/leejaeheon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+21-Jun-2024 22:40:45.824 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8080"]을(를) 초기화합니다.
+21-Jun-2024 22:40:45.848 INFO [main] org.apache.catalina.startup.Catalina.load [315] 밀리초 내에 서버가 초기화되었습니다.
+21-Jun-2024 22:40:45.866 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+21-Jun-2024 22:40:45.866 INFO [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.90]
+21-Jun-2024 22:40:45.870 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]을(를) 배치합니다.
+21-Jun-2024 22:40:45.992 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]에 대한 배치가 [120] 밀리초에 완료되었습니다.
+21-Jun-2024 22:40:45.992 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]을(를) 배치합니다.
+21-Jun-2024 22:40:46.007 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]에 대한 배치가 [15] 밀리초에 완료되었습니다.
+21-Jun-2024 22:40:46.007 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]을(를) 배치합니다.
+21-Jun-2024 22:40:46.110 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]에 대한 배치가 [103] 밀리초에 완료되었습니다.
+21-Jun-2024 22:40:46.110 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]을(를) 배치합니다.
+21-Jun-2024 22:40:46.117 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]에 대한 배치가 [6] 밀리초에 완료되었습니다.
+21-Jun-2024 22:40:46.117 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]을(를) 배치합니다.
+21-Jun-2024 22:40:46.124 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]에 대한 배치가 [7] 밀리초에 완료되었습니다.
+21-Jun-2024 22:40:46.126 INFO [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8080"]을(를) 시작합니다.
+21-Jun-2024 22:40:46.130 INFO [main] org.apache.catalina.startup.Catalina.start 서버가 [280] 밀리초 내에 시작되었습니다.
+21-Jun-2024 23:17:26.652 WARNING [main] org.apache.catalina.core.StandardServer.await 유효하지 않은 셧다운 명령 []을(를) 받았습니다.
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:38:18.849 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.90
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Jun 14 2024 14:45:13 UTC
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.90.0
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Mac OS X
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     14.5
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          aarch64
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           /Users/leejaeheon/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          21.0.2+13-58
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:38:18.851 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.io=ALL-UNNAMED
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util=ALL-UNNAMED
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/conf/logging.properties
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+21-Jun-2024 23:38:18.855 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:38:18.856 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:38:18.856 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/temp
+21-Jun-2024 23:38:18.860 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/leejaeheon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+21-Jun-2024 23:38:18.996 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8080"]을(를) 초기화합니다.
+21-Jun-2024 23:38:19.003 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException 구성요소 [Connector["http-nio-8080"]]을(를) 초기화하지 못했습니다.
+	org.apache.catalina.LifecycleException: 프로토콜 핸들러 초기화가 실패했습니다.
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1012)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:525)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:990)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:686)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:709)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:302)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:472)
+	Caused by: java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+		at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+		at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:268)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:223)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1371)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1384)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:662)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:75)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1010)
+		... 11 more
+21-Jun-2024 23:38:19.003 INFO [main] org.apache.catalina.startup.Catalina.load [231] 밀리초 내에 서버가 초기화되었습니다.
+21-Jun-2024 23:38:19.016 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+21-Jun-2024 23:38:19.016 INFO [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.90]
+21-Jun-2024 23:38:19.018 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]을(를) 배치합니다.
+21-Jun-2024 23:38:19.124 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]에 대한 배치가 [105] 밀리초에 완료되었습니다.
+21-Jun-2024 23:38:19.125 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]을(를) 배치합니다.
+21-Jun-2024 23:38:19.142 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]에 대한 배치가 [17] 밀리초에 완료되었습니다.
+21-Jun-2024 23:38:19.142 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]을(를) 배치합니다.
+21-Jun-2024 23:38:19.247 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]에 대한 배치가 [105] 밀리초에 완료되었습니다.
+21-Jun-2024 23:38:19.247 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]을(를) 배치합니다.
+21-Jun-2024 23:38:19.254 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]에 대한 배치가 [7] 밀리초에 완료되었습니다.
+21-Jun-2024 23:38:19.254 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]을(를) 배치합니다.
+21-Jun-2024 23:38:19.262 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]에 대한 배치가 [8] 밀리초에 완료되었습니다.
+21-Jun-2024 23:38:19.264 INFO [main] org.apache.catalina.startup.Catalina.start 서버가 [260] 밀리초 내에 시작되었습니다.
+21-Jun-2024 23:38:19.266 SEVERE [main] org.apache.catalina.core.StandardServer.await 주소 [localhost]와(과) 포트 [8005]에, 서버 셧다운 소켓을 생성하지 못했습니다. (base 포트 [8005], offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.Net.bind(Net.java:554)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:541)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:825)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:773)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+21-Jun-2024 23:38:19.266 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8080"]을(를) 일시 정지 중
+21-Jun-2024 23:38:19.266 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+21-Jun-2024 23:38:19.274 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8080"]을(를) 중지시킵니다.
+21-Jun-2024 23:38:19.274 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8080"]을(를) 소멸시킵니다.
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:08.104 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.90
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Jun 14 2024 14:45:13 UTC
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.90.0
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Mac OS X
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     14.5
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          aarch64
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           /Users/leejaeheon/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          21.0.2+13-58
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:08.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:08.109 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Jun-2024 23:43:08.109 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.io=ALL-UNNAMED
+21-Jun-2024 23:43:08.109 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util=ALL-UNNAMED
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/conf/logging.properties
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:08.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/temp
+21-Jun-2024 23:43:08.114 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/leejaeheon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+21-Jun-2024 23:43:08.246 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8090"]을(를) 초기화합니다.
+21-Jun-2024 23:43:08.255 INFO [main] org.apache.catalina.startup.Catalina.load [230] 밀리초 내에 서버가 초기화되었습니다.
+21-Jun-2024 23:43:08.269 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+21-Jun-2024 23:43:08.269 INFO [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.90]
+21-Jun-2024 23:43:08.271 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]을(를) 배치합니다.
+21-Jun-2024 23:43:08.383 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]에 대한 배치가 [111] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:08.383 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]을(를) 배치합니다.
+21-Jun-2024 23:43:08.400 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]에 대한 배치가 [17] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:08.400 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]을(를) 배치합니다.
+21-Jun-2024 23:43:08.502 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]에 대한 배치가 [102] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:08.503 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]을(를) 배치합니다.
+21-Jun-2024 23:43:08.509 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]에 대한 배치가 [6] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:08.509 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]을(를) 배치합니다.
+21-Jun-2024 23:43:08.516 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]에 대한 배치가 [7] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:08.518 INFO [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8090"]을(를) 시작합니다.
+21-Jun-2024 23:43:08.521 INFO [main] org.apache.catalina.startup.Catalina.start 서버가 [265] 밀리초 내에 시작되었습니다.
+21-Jun-2024 23:43:08.523 SEVERE [main] org.apache.catalina.core.StandardServer.await 주소 [localhost]와(과) 포트 [8005]에, 서버 셧다운 소켓을 생성하지 못했습니다. (base 포트 [8005], offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.Net.bind(Net.java:554)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:541)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:825)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:773)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+21-Jun-2024 23:43:08.523 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8090"]을(를) 일시 정지 중
+21-Jun-2024 23:43:08.525 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+21-Jun-2024 23:43:08.534 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8090"]을(를) 중지시킵니다.
+21-Jun-2024 23:43:08.535 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8090"]을(를) 소멸시킵니다.
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:09.318 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.90
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Jun 14 2024 14:45:13 UTC
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.90.0
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Mac OS X
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     14.5
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          aarch64
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           /Users/leejaeheon/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          21.0.2+13-58
+21-Jun-2024 23:43:09.320 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+21-Jun-2024 23:43:09.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:09.321 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.io=ALL-UNNAMED
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util=ALL-UNNAMED
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/conf/logging.properties
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:09.324 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/temp
+21-Jun-2024 23:43:09.329 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/leejaeheon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+21-Jun-2024 23:43:09.460 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8090"]을(를) 초기화합니다.
+21-Jun-2024 23:43:09.470 INFO [main] org.apache.catalina.startup.Catalina.load [229] 밀리초 내에 서버가 초기화되었습니다.
+21-Jun-2024 23:43:09.484 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+21-Jun-2024 23:43:09.484 INFO [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.90]
+21-Jun-2024 23:43:09.487 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]을(를) 배치합니다.
+21-Jun-2024 23:43:09.588 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]에 대한 배치가 [100] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:09.588 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]을(를) 배치합니다.
+21-Jun-2024 23:43:09.602 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]에 대한 배치가 [14] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:09.602 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]을(를) 배치합니다.
+21-Jun-2024 23:43:09.685 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]에 대한 배치가 [83] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:09.685 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]을(를) 배치합니다.
+21-Jun-2024 23:43:09.691 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]에 대한 배치가 [6] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:09.691 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]을(를) 배치합니다.
+21-Jun-2024 23:43:09.698 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]에 대한 배치가 [7] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:09.699 INFO [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8090"]을(를) 시작합니다.
+21-Jun-2024 23:43:09.703 INFO [main] org.apache.catalina.startup.Catalina.start 서버가 [231] 밀리초 내에 시작되었습니다.
+21-Jun-2024 23:43:09.705 SEVERE [main] org.apache.catalina.core.StandardServer.await 주소 [localhost]와(과) 포트 [8005]에, 서버 셧다운 소켓을 생성하지 못했습니다. (base 포트 [8005], offset [0])
+	java.net.BindException: Address already in use
+		at java.base/sun.nio.ch.Net.bind0(Native Method)
+		at java.base/sun.nio.ch.Net.bind(Net.java:565)
+		at java.base/sun.nio.ch.Net.bind(Net.java:554)
+		at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+		at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+		at java.base/java.net.ServerSocket.<init>(ServerSocket.java:278)
+		at org.apache.catalina.core.StandardServer.await(StandardServer.java:541)
+		at org.apache.catalina.startup.Catalina.await(Catalina.java:825)
+		at org.apache.catalina.startup.Catalina.start(Catalina.java:773)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:345)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+21-Jun-2024 23:43:09.705 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8090"]을(를) 일시 정지 중
+21-Jun-2024 23:43:09.707 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+21-Jun-2024 23:43:09.714 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8090"]을(를) 중지시킵니다.
+21-Jun-2024 23:43:09.715 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8090"]을(를) 소멸시킵니다.
+21-Jun-2024 23:43:16.120 INFO [main] org.apache.catalina.core.StandardServer.await 셧다운 포트를 통해 유효한 셧다운 명령을 받았습니다. 서버 인스턴스를 중지시킵니다.
+21-Jun-2024 23:43:16.121 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8080"]을(를) 일시 정지 중
+21-Jun-2024 23:43:16.124 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+21-Jun-2024 23:43:16.135 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8080"]을(를) 중지시킵니다.
+21-Jun-2024 23:43:16.138 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8080"]을(를) 소멸시킵니다.
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:19.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 서버 버전 이름:    Apache Tomcat/9.0.90
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 빌드 시각:  Jun 14 2024 14:45:13 UTC
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server 버전 번호:  9.0.90.0
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 이름:     Mac OS X
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 운영체제 버전:     14.5
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 아키텍처:          aarch64
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 자바 홈:           /Users/leejaeheon/Library/Java/JavaVirtualMachines/openjdk-21.0.2/Contents/Home
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 버전:          21.0.2+13-58
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM 벤더:          Oracle Corporation
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:19.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     /Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.lang=ALL-UNNAMED
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.io=ALL-UNNAMED
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util=ALL-UNNAMED
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.config.file=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/conf/logging.properties
+21-Jun-2024 23:43:19.051 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djdk.tls.ephemeralDHKeySize=2048
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dignore.endorsed.dirs=
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.base=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Dcatalina.home=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90
+21-Jun-2024 23:43:19.052 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log 명령 행 아규먼트:  -Djava.io.tmpdir=/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/temp
+21-Jun-2024 23:43:19.056 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 프로덕션 환경들에서 최적의 성능을 제공하는, APR 기반 Apache Tomcat Native 라이브러리가, 다음 java.library.path에서 발견되지 않습니다: [/Users/leejaeheon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+21-Jun-2024 23:43:19.191 INFO [main] org.apache.coyote.AbstractProtocol.init 프로토콜 핸들러 ["http-nio-8090"]을(를) 초기화합니다.
+21-Jun-2024 23:43:19.202 INFO [main] org.apache.catalina.startup.Catalina.load [237] 밀리초 내에 서버가 초기화되었습니다.
+21-Jun-2024 23:43:19.218 INFO [main] org.apache.catalina.core.StandardService.startInternal 서비스 [Catalina]을(를) 시작합니다.
+21-Jun-2024 23:43:19.218 INFO [main] org.apache.catalina.core.StandardEngine.startInternal 서버 엔진을 시작합니다: [Apache Tomcat/9.0.90]
+21-Jun-2024 23:43:19.220 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]을(를) 배치합니다.
+21-Jun-2024 23:43:19.329 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/docs]에 대한 배치가 [108] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:19.329 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]을(를) 배치합니다.
+21-Jun-2024 23:43:19.348 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/manager]에 대한 배치가 [19] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:19.348 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]을(를) 배치합니다.
+21-Jun-2024 23:43:19.437 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/examples]에 대한 배치가 [89] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:19.437 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]을(를) 배치합니다.
+21-Jun-2024 23:43:19.443 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/ROOT]에 대한 배치가 [6] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:19.443 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]을(를) 배치합니다.
+21-Jun-2024 23:43:19.450 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory 웹 애플리케이션 디렉토리 [/Users/leejaeheon/Desktop/Programming/WebStudy/apache-tomcat-9.0.90/webapps/host-manager]에 대한 배치가 [7] 밀리초에 완료되었습니다.
+21-Jun-2024 23:43:19.452 INFO [main] org.apache.coyote.AbstractProtocol.start 프로토콜 핸들러 ["http-nio-8090"]을(를) 시작합니다.
+21-Jun-2024 23:43:19.456 INFO [main] org.apache.catalina.startup.Catalina.start 서버가 [253] 밀리초 내에 시작되었습니다.
+21-Jun-2024 23:44:06.678 INFO [main] org.apache.catalina.core.StandardServer.await 셧다운 포트를 통해 유효한 셧다운 명령을 받았습니다. 서버 인스턴스를 중지시킵니다.
+21-Jun-2024 23:44:06.678 INFO [main] org.apache.coyote.AbstractProtocol.pause 프로토콜 핸들러 ["http-nio-8090"]을(를) 일시 정지 중
+21-Jun-2024 23:44:06.680 INFO [main] org.apache.catalina.core.StandardService.stopInternal 서비스 [Catalina]을(를) 중지시킵니다.
+21-Jun-2024 23:44:06.690 INFO [main] org.apache.coyote.AbstractProtocol.stop 프로토콜 핸들러 ["http-nio-8090"]을(를) 중지시킵니다.
+21-Jun-2024 23:44:06.691 INFO [main] org.apache.coyote.AbstractProtocol.destroy 프로토콜 핸들러 ["http-nio-8090"]을(를) 소멸시킵니다.
