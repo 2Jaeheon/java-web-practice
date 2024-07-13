@@ -267,3 +267,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,macos,intellij,eclipse
+*.tomcat
+*.DS_Store
+*.idea
