@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 창</title>
 </head>
 <body>
-	<form name="frmLogin" method="post" action="loginTest" encType="UTF-8">
+	<!--test01폴더의 HTML에서 서블릿에 요청하므로 action속성에 프로젝트 이름 pro06을 입력-->
+	<form name="frmLogin" method="post" action="/pro06/loginTest2" encType="UTF-8">
 		아이디: <input type="text" name="user_id"><br>
 		비밀번호: <input type="text" name="user_pw"><br>
 		<input type="submit" value="로그인">
