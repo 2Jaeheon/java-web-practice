@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 //webFilter를 통해서 모든 요청이 필터를 거치게 됨
-@WebFilter("/*")
+@WebFilter("/")
 public class EncoderFilter implements Filter {
 
     ServletContext context;
