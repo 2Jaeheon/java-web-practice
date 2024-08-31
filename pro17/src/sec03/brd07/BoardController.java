@@ -1,4 +1,4 @@
-package sec03.brd06;
+package sec03.brd07;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,22 +13,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
-@WebServlet("/board6/*")
+@WebServlet("/board/*")
 public class BoardController extends HttpServlet {
 
     private static String ARTICLE_IMAGE_REPO = "/Users/jaeheon/Desktop/Programming/webStudy/java-web-practice/pro17/article_image";
-    BoardService boardService;
     ArticleVO articleVO;
+    BoardService boardService;
+    HttpSession session;
 
     @Override
     public void init() throws ServletException {
-        articleVO = new ArticleVO();
         boardService = new BoardService();
+        articleVO = new ArticleVO();
+    }
+
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
+        doHandle(req, resp);
     }
 
     @Override
@@ -37,17 +46,13 @@ public class BoardController extends HttpServlet {
         doHandle(req, resp);
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-        doHandle(req, resp);
-    }
-
     protected void doHandle(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        String nextPage = null;
+        String nextPage = "";
+
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+
         String action = request.getPathInfo();
 
         try {
@@ -55,9 +60,9 @@ public class BoardController extends HttpServlet {
             if (action == null || action.equals("/listArticles.do")) {
                 articlesList = boardService.listArticles();
                 request.setAttribute("articlesList", articlesList);
-                nextPage = "/board05/listArticles.jsp";
+                nextPage = "/board06/listArticles.jsp";
             } else if (action.equals("/articleForm.do")) {
-                nextPage = "/board05/articleForm.jsp";
+                nextPage = "/board06/articleForm.jsp";
             } else if (action.equals("/addArticle.do")) {
                 int articleNO = 0;
                 Map<String, String> articleMap = upload(request, response);
@@ -92,7 +97,7 @@ public class BoardController extends HttpServlet {
                 String articleNO = request.getParameter("articleNO");
                 articleVO = boardService.viewArticle(Integer.parseInt(articleNO));
                 request.setAttribute("article", articleVO);
-                nextPage = "/board05/viewArticle.jsp";
+                nextPage = "/board06/viewArticle.jsp";
 
 
             } else if (action.equals("/modArticle.do")) {
@@ -145,8 +150,49 @@ public class BoardController extends HttpServlet {
                     + request.getContextPath() + "/board/listArticles.do';" + "</script>");
                 return;
 
+
+            } else if (action.equals("/replyForm.do")) {
+                int parentNO = Integer.parseInt(request.getParameter("parentNO"));
+                session = request.getSession();
+                session.setAttribute("parentNO", parentNO);
+                nextPage = "/board06/replyForm.jsp";
+
+
+            } else if (action.equals("/addReply.do")) {
+                session = request.getSession();
+                int parentNO = (Integer) session.getAttribute("parentNO");
+                session.removeAttribute("parentNO");
+
+                Map<String, String> articleMap = upload(request, response);
+                String title = articleMap.get("title");
+                String content = articleMap.get("content");
+                String imageFileName = articleMap.get("imageFileName");
+
+                articleVO.setParentNO(parentNO);
+                articleVO.setId("lee");
+                articleVO.setTitle(title);
+                articleVO.setContent(content);
+                articleVO.setImageFileName(imageFileName);
+
+                int articleNO = boardService.addReply(articleVO);
+
+                if (imageFileName != null && imageFileName.length() != 0) {
+                    File srcFile = new File(
+                        ARTICLE_IMAGE_REPO + File.separator + "temp" + File.separator
+                            + imageFileName);
+                    File destDir = new File(ARTICLE_IMAGE_REPO + File.separator + articleNO);
+                    destDir.mkdirs();
+                    FileUtils.moveFileToDirectory(srcFile, destDir, true);
+                }
+
+                PrintWriter pw = response.getWriter();
+                pw.print("<script>" + "  alert('답글을 추가했습니다.');" + " location.href='"
+                    + request.getContextPath() + "/board/viewArticle.do?articleNO=" + articleNO
+                    + "';" + "</script>");
+                return;
+
             } else {
-                nextPage = "/board05/listArticles.jsp";
+                nextPage = "/board06/listArticles.jsp";
             }
 
             RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
@@ -155,6 +201,7 @@ public class BoardController extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 
     private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
