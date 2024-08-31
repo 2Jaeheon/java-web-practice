@@ -14,7 +14,9 @@ public class BoardService {
 
     public Map listArticles(Map<String, Integer> pagingMap) {
         Map articlesMap = new HashMap();
+        //전달된 맵을 사용해서 글 목록을 조회
         List<ArticleVO> articlesList = boardDAO.selectAllArticles(pagingMap);
+        //테이블에 존재하는 전체 글 수를 조회
         int totArticles = boardDAO.selectTotArticles();
         articlesMap.put("articlesList", articlesList);
         articlesMap.put("totArticles", totArticles);

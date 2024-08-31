@@ -35,24 +35,11 @@ public class BoardDAO {
         int pageNum = (Integer) pagingMap.get("pageNum");
         try {
             conn = dataFactory.getConnection();
-            String query = "SELECT * FROM ( "
-                + "select ROWNUM  as recNum," + "LVL,"
-                + "articleNO,"
-                + "parentNO,"
-                + "title,"
-                + "id,"
-                + "writeDate"
-                + " from (select LEVEL as LVL, "
-                + "articleNO,"
-                + "parentNO,"
-                + "title,"
-                + "id,"
-                + "writeDate"
-                + " from t_board"
-                + " START WITH  parentNO=0"
-                + " CONNECT BY PRIOR articleNO = parentNO"
-                + "  ORDER SIBLINGS BY articleNO DESC)"
-                + ") "
+            String query = "SELECT * FROM ( " + "select ROWNUM  as recNum," + "LVL," + "articleNO,"
+                + "parentNO," + "title," + "id," + "writeDate" + " from (select LEVEL as LVL, "
+                + "articleNO," + "parentNO," + "title," + "id," + "writeDate" + " from t_board"
+                + " START WITH  parentNO=0" + " CONNECT BY PRIOR articleNO = parentNO"
+                + "  ORDER SIBLINGS BY articleNO DESC)" + ") "
                 + " where recNum between(?-1)*100+(?-1)*10+1 and (?-1)*100+?*10";
             System.out.println(query);
             pstmt = conn.prepareStatement(query);
@@ -180,8 +167,7 @@ public class BoardDAO {
             conn = dataFactory.getConnection();
             String query =
                 "select articleNO,parentNO,title,content, NVL(imageFileName, 'null') as imageFileName, id, writeDate"
-                    + " from t_board"
-                    + " where articleNO=?";
+                    + " from t_board" + " where articleNO=?";
             System.out.println(query);
             pstmt = conn.prepareStatement(query);
             pstmt.setInt(1, articleNO);
@@ -281,6 +267,7 @@ public class BoardDAO {
                 articleNO = rs.getInt("articleNO");
                 articleNOList.add(articleNO);
             }
+            rs.close();
             pstmt.close();
             conn.close();
         } catch (Exception e) {
