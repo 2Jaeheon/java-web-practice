@@ -1,6 +1,8 @@
 package practice.board;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,12 +13,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 
 @WebServlet("/boards/*")
 public class BoardController extends HttpServlet {
 
+    private static String ARTICLE_IMAGE_REPO = "/Users/jaeheon/Desktop/Programming/webStudy/java-web-practice/pro17/article_image";
     BoardService boardService;
     ArticleVO articleVO;
+    HttpSession session;
 
     @Override
     public void init() throws ServletException {
@@ -64,13 +73,192 @@ public class BoardController extends HttpServlet {
 
                 request.setAttribute("articlesMap", articlesMap);
                 nextPage = "/practice/boardPractice/listArticles.jsp";
+            } else if (action.equals("/articleForm.do")) {
+                nextPage = "/practice/boardPractice/articleForm.jsp";
+
+
+            } else if (action.equals("/addArticle.do")) {
+                int articleNO = 0;
+                Map<String, String> articleMap = upload(request, response);
+                String title = articleMap.get("title");
+                String content = articleMap.get("content");
+                String imageFileName = articleMap.get("imageFileName");
+
+                articleVO.setParentNO(0);
+                articleVO.setId("hong");
+                articleVO.setTitle(title);
+                articleVO.setContent(content);
+                articleVO.setImageFileName(imageFileName);
+
+                articleNO = boardService.addArticle(articleVO);
+
+                if (imageFileName != null && imageFileName.length() != 0) {
+                    File srcFile = new File(
+                        ARTICLE_IMAGE_REPO + File.separator + "temp" + File.separator
+                            + imageFileName);
+                    File destDir = new File(ARTICLE_IMAGE_REPO + File.separator + articleNO);
+                    destDir.mkdirs();
+                    FileUtils.moveFileToDirectory(srcFile, destDir, true);
+                }
+
+                PrintWriter pw = response.getWriter();
+                pw.print("<script>" + "  alert('새글을 추가했습니다.');" + " location.href='"
+                    + request.getContextPath() + "/boards/listArticles.do';" + "</script>");
+
+                return;
+            } else if (action.equals("/viewArticle.do")) {
+                String articleNO = request.getParameter("articleNO");
+                articleVO = boardService.viewArticle(Integer.parseInt(articleNO));
+                request.setAttribute("article", articleVO);
+                nextPage = "/practice/boardPractice/viewArticle.jsp";
+            } else if (action.equals("/modArticle.do")) {
+                Map<String, String> articleMap = upload(request, response);
+                int articleNO = Integer.parseInt(articleMap.get("articleNO"));
+                articleVO.setArticleNO(articleNO);
+                String title = articleMap.get("title");
+                String content = articleMap.get("content");
+                String imageFileName = articleMap.get("imageFileName");
+
+                articleVO.setParentNO(0);
+                articleVO.setId("hong");
+                articleVO.setTitle(title);
+                articleVO.setContent(content);
+                articleVO.setImageFileName(imageFileName);
+                boardService.modArticle(articleVO);
+
+                if (imageFileName != null && imageFileName.length() != 0) {
+                    String originalFileName = articleMap.get("originalFileName");
+                    File srcFile = new File(
+                        ARTICLE_IMAGE_REPO + File.separator + "temp" + File.separator
+                            + imageFileName);
+                    File destDir = new File(ARTICLE_IMAGE_REPO + File.separator + articleNO);
+                    destDir.mkdirs();
+                    FileUtils.moveFileToDirectory(srcFile, destDir, true);
+                    ;
+                    File oldFile = new File(
+                        ARTICLE_IMAGE_REPO + File.separator + articleNO + File.separator
+                            + originalFileName);
+                    oldFile.delete();
+                }
+                PrintWriter pw = response.getWriter();
+                pw.print("<script>" + "  alert('글을 수정했습니다.');" + " location.href='"
+                    + request.getContextPath()
+                    + "/board/viewArticle.do?articleNO=" + articleNO + "';" + "</script>");
+                return;
+            } else if (action.equals("/removeArticle.do")) {
+                int articleNO = Integer.parseInt(request.getParameter("articleNO"));
+                List<Integer> articleNOList = boardService.removeArticle(articleNO);
+
+                for (int _articleNO : articleNOList) {
+                    File imgDir = new File(ARTICLE_IMAGE_REPO + File.separator + _articleNO);
+                    if (imgDir.exists()) {
+                        FileUtils.deleteDirectory(imgDir);
+                    }
+                }
+
+                PrintWriter pw = response.getWriter();
+                pw.print("<script>" + "  alert('글을 삭제했습니다.');" + " location.href='"
+                    + request.getContextPath()
+                    + "/board/listArticles.do';" + "</script>");
+                return;
+
+
+            } else if (action.equals("/addReply.do")) {
+                session = request.getSession();
+                int parentNO = (Integer) session.getAttribute("parentNO");
+                session.removeAttribute("parentNO");
+
+                Map<String, String> articleMap = upload(request, response);
+
+                String title = articleMap.get("title");
+                String content = articleMap.get("content");
+                String imageFileName = articleMap.get("imageFileName");
+
+                articleVO.setParentNO(parentNO);
+                articleVO.setId("lee");
+                articleVO.setTitle(title);
+                articleVO.setContent(content);
+                articleVO.setImageFileName(imageFileName);
+                int articleNO = boardService.addReply(articleVO);
+
+                if (imageFileName != null && imageFileName.length() != 0) {
+                    File srcFile = new File(
+                        ARTICLE_IMAGE_REPO + File.separator + "temp" + File.separator
+                            + imageFileName);
+                    File destDir = new File(ARTICLE_IMAGE_REPO + File.separator + articleNO);
+                    destDir.mkdirs();
+                    FileUtils.moveFileToDirectory(srcFile, destDir, true);
+                }
+
+                PrintWriter pw = response.getWriter();
+
+                pw.print("<script>" + "  alert('답글을 추가했습니다.');" + " location.href='"
+                    + request.getContextPath()
+                    + "/board/viewArticle.do?articleNO=" + articleNO + "';" + "</script>");
+                return;
+
             } else {
                 nextPage = "/practice/boardPractice/listArticles.jsp";
             }
+
             RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    private Map<String, String> upload(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        Map<String, String> articleMap = new HashMap<String, String>();
+        String encoding = "utf-8";
+        File currentDirPath = new File(ARTICLE_IMAGE_REPO);
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        factory.setRepository(currentDirPath);
+        factory.setSizeThreshold(1024 * 1024);
+
+        ServletFileUpload upload = new ServletFileUpload(factory);
+
+        try {
+            //클라이언트의 요청을 파싱해서 리스트에 저장
+            List items = upload.parseRequest(request);
+
+            for (int i = 0; i < items.size(); i++) {
+                //파일 아이템 객체에 저장
+                FileItem fileItem = (FileItem) items.get(i);
+                //파일이 아니라면
+                if (fileItem.isFormField()) {
+                    System.out.println(
+                        fileItem.getFieldName() + "=" + fileItem.getString(encoding));
+                    articleMap.put(fileItem.getFieldName(), fileItem.getString(encoding));
+                } else { //파일이라면
+                    System.out.println("파라미터명:" + fileItem.getFieldName());
+                    //System.out.println("파일명:" + fileItem.getName());
+                    System.out.println("파일크기:" + fileItem.getSize() + "bytes");
+                    //articleMap.put(fileItem.getFieldName(), fileItem.getName());
+
+                    if (fileItem.getSize() > 0) {
+                        int idx = fileItem.getName().lastIndexOf("\\");
+                        if (idx == -1) {
+                            idx = fileItem.getName().lastIndexOf("/");
+                        }
+
+                        String fileName = fileItem.getName().substring(idx + 1);
+                        System.out.println("파일명:" + fileName);
+                        articleMap.put(fileItem.getFieldName(),
+                            fileName);  //익스플로러에서 업로드 파일의 경로 제거 후 map에 파일명 저장);
+                        File uploadFile = new File(
+                            currentDirPath + File.separator + "temp" + File.separator
+                                + fileName);
+                        fileItem.write(uploadFile);
+                    } // end if
+                } // end if
+            } // end for
+        } catch (Exception e) { 
+            e.printStackTrace();
+        }
+        return articleMap;
+    }
 }
+

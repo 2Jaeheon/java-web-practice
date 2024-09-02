@@ -48,7 +48,7 @@
                 </td>
             </tr>
         </c:when>
-        
+
         <c:when test="${!empty articlesList}">
             <c:forEach var="article" items="${articlesList}" varStatus="articleNum">
                 <tr align="center">

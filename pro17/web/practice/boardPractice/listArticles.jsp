@@ -76,11 +76,11 @@
                                 </c:forEach>
                                 <span style="font-size:12px;">[답변]</span>
                                 <a class='cls1'
-                                   href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title}</a>
+                                   href="${contextPath}/boards/viewArticle.do?articleNO=${article.articleNO}">${article.title}</a>
                             </c:when>
                             <c:otherwise>
                                 <a class='cls1'
-                                   href="${contextPath}/board/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
+                                   href="${contextPath}/boards/viewArticle.do?articleNO=${article.articleNO}">${article.title }</a>
                             </c:otherwise>
                         </c:choose>
                     </td>
@@ -92,20 +92,20 @@
 </table>
 
 <div class="cls2">
-    <c:if test="${totArticles != null }">
+    <c:if test="${totArticles != null}">
         <c:choose>
             <c:when test="${totArticles >100 }"> <!-- 글 개수가 100 초과인경우 -->
                 <c:forEach var="page" begin="1" end="10" step="1">
                     <c:if test="${section >1 && page==1 }">
                         <a class="no-uline"
-                           href="${contextPath }/board/listArticles.do?section=${section-1}&pageNum=${(section-1)*10 +1 }">&nbsp;
+                           href="${contextPath }/boards/listArticles.do?section=${section-1}&pageNum=${(section-1)*10 +1 }">&nbsp;
                             pre </a>
                     </c:if>
                     <a class="no-uline"
-                       href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${(section-1)*10 +page } </a>
+                       href="${contextPath }/boards/listArticles.do?section=${section}&pageNum=${page}">${(section-1)*10 +page } </a>
                     <c:if test="${page ==10 }">
                         <a class="no-uline"
-                           href="${contextPath }/board/listArticles.do?section=${section+1}&pageNum=${section*10+1}">&nbsp;
+                           href="${contextPath }/boards/listArticles.do?section=${section+1}&pageNum=${section*10+1}">&nbsp;
                             next</a>
                     </c:if>
                 </c:forEach>
@@ -121,11 +121,11 @@
                     <c:choose>
                         <c:when test="${page==pageNum}">
                             <a class="sel-page"
-                               href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${page } </a>
+                               href="${contextPath }/boards/listArticles.do?section=${section}&pageNum=${page}">${page} </a>
                         </c:when>
                         <c:otherwise>
                             <a class="no-uline"
-                               href="${contextPath }/board/listArticles.do?section=${section}&pageNum=${page}">${page } </a>
+                               href="${contextPath }/boards/listArticles.do?section=${section}&pageNum=${page}">${page} </a>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
@@ -134,6 +134,6 @@
     </c:if>
 </div>
 <br><br>
-<a class="cls1" href="${contextPath}/board/articleForm.do"><p class="cls2">글쓰기</p></a>
+<a class="cls1" href="${contextPath}/boards/articleForm.do"><p class="cls2">글쓰기</p></a>
 </body>
 </html>
