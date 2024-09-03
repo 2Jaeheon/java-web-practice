@@ -255,7 +255,7 @@ public class BoardController extends HttpServlet {
                     } // end if
                 } // end if
             } // end for
-        } catch (Exception e) { 
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return articleMap;
