@@ -270,7 +270,6 @@ $RECYCLE.BIN/
 *.tomcat
 *.DS_Store
 *.idea
-*.xml
 *.iml
 *.MF
 Servers
