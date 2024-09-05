@@ -54,7 +54,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
       <props>
         <!--다음 메소드명을 실행하겠다 라는 뜻-->
         <prop key="/test/login.do">login</prop>
-        <prop key="/test/memberInfo.do">login</prop>
+        <prop key="/test/memberInfo.do">memberInfo</prop>
       </props>
     </property>
   </bean>
