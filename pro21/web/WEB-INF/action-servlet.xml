@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!--id가 simpleUrlController 인 빈을 생성-->
+  <bean id="simpleUrlController" class="com.spring.ex01.SimpleUrlController"/>
+
+  <!--스프링에서는 HandlerMapping 은 클라이언트가 요청한 URL 을 처리할 컨트롤러를 지정-->
+  <!--SimpleUrlHandlerMapping 클래스를 이용해서 /test/index.do로 요청 시 SimpleUrlController 를  호출하도록 매핑-->
+  <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+      <!--<props> 태그: Spring에서 java.util.Properties 객체를 정의하기 위해 사용되는 태그입니다.
+      이 태그는 여러 개의 키-값 쌍을 포함할 수 있으며,
+      내부적으로는 Properties 객체로 변환됩니다. 일반적으로 설정 파일에서 키-값 쌍을 지정할 때 사용됩니다.-->
+      <props>
+        <!--<prop> 태그: <props> 태그의 하위 태그로, 각 키-값 쌍을 정의하는 역할을 합니다.
+         key 속성을 사용하여 키를 정의하고, 태그의 값으로 해당 키에 대한 값을 정의합니다.-->
+        <prop key="/test/index.do">simpleUrlController</prop>
+      </props>
+    </property>
+  </bean>
+
+</beans>
