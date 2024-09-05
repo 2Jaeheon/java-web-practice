@@ -1,23 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
   xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
   <!--id가 simpleUrlController 인 빈을 생성-->
-  <bean id="simpleUrlController" class="com.spring.ex01.SimpleUrlController"/>
+  <!--<bean class="com.spring.ex01.SimpleUrlController" id="simpleUrlController"/>-->
 
   <!--스프링에서는 HandlerMapping 은 클라이언트가 요청한 URL 을 처리할 컨트롤러를 지정-->
   <!--SimpleUrlHandlerMapping 클래스를 이용해서 /test/index.do로 요청 시 SimpleUrlController 를  호출하도록 매핑-->
-  <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+  <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" id="urlMapping">
     <property name="mappings">
-      <!--<props> 태그: Spring에서 java.util.Properties 객체를 정의하기 위해 사용되는 태그입니다.
+      &lt;!&ndash;<props> 태그: Spring에서 java.util.Properties 객체를 정의하기 위해 사용되는 태그입니다.
       이 태그는 여러 개의 키-값 쌍을 포함할 수 있으며,
-      내부적으로는 Properties 객체로 변환됩니다. 일반적으로 설정 파일에서 키-값 쌍을 지정할 때 사용됩니다.-->
+      내부적으로는 Properties 객체로 변환됩니다. 일반적으로 설정 파일에서 키-값 쌍을 지정할 때 사용됩니다.&ndash;&gt;
       <props>
-        <!--<prop> 태그: <props> 태그의 하위 태그로, 각 키-값 쌍을 정의하는 역할을 합니다.
-         key 속성을 사용하여 키를 정의하고, 태그의 값으로 해당 키에 대한 값을 정의합니다.-->
+        &lt;!&ndash;<prop> 태그: <props> 태그의 하위 태그로, 각 키-값 쌍을 정의하는 역할을 합니다.
+         key 속성을 사용하여 키를 정의하고, 태그의 값으로 해당 키에 대한 값을 정의합니다.&ndash;&gt;
         <prop key="/test/index.do">simpleUrlController</prop>
+      </props>
+    </property>
+  </bean>
+-->
+  <!--컨트롤러에서 ModelAndView 인자로 뷰이름이 반환되면
+  InternalResourceViewResolver 의 프로퍼티 prefix 속성에 지정된
+   /test 폴더에서 ModelAndView 인자로 넘어온 뷰이름에 해당되는 JSP를 선택해 DispatcherServlet으로 보냄 -->
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/test/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+
+  <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" id="userMapping">
+    <property name="mappings">
+      <props>
+        <!--URL 요청명이 /test/*.do로 시작되면 userController 요청-->
+        <prop key="/test/*.do">userController</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean class="com.spring.ex02.UserController" id="userController">
+    <!--methodNameResolver 프로퍼티에 userMethodNameResolver 를 주입해서 지정한 요청명에 대해 직접 메소드를 호출하게 함-->
+    <property name="methodNameResolver">
+      <ref local="userMethodNameResolver"/>
+    </property>
+  </bean>
+
+  <!--PropertiesMethodNameResolver 를 이용해서 /test/login.do로 요청하면 userController 의 login 메소드를 호출함-->
+  <bean class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver"
+    id="userMethodNameResolver">
+    <property name="mappings">
+      <props>
+        <!--다음 메소드명을 실행하겠다 라는 뜻-->
+        <prop key="/test/login.do">login</prop>
+        <prop key="/test/memberInfo.do">login</prop>
       </props>
     </property>
   </bean>
