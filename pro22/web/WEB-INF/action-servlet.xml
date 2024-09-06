@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.springframework.org/schema/beans"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <!--View Resolver 설정하는 부분, JSP페이지를 뷰로 사용하겠다는 설정
+  prefix 와 suffix 속은 뷰와 경로와 파일 확장자를 정의합니다.
+  예를들어 컨트롤러 hone이라는 뷰를 반환하면 실제로는 /WEB-INF/views/home.jsp파일이 호출
+  -->
+  <bean id="viewResolver"
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    <property name="prefix" value="/WEB-INF/views/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+
+  <!--
+  이 빈은 MemberController 클래스의 인스턴스를 정의
+	methodNameResolver 속성에는 methodResolver 라는 다른 빈이 주입됩니다. 이는 컨트롤러에서 메서드를 매핑할 때 사용됩니다.
+	memberService 속성에는 memberService 라는 빈이 주입됩니다. 이는 서비스 레이어를 통해 비즈니스 로직을 수행하기 위함입니다.-->
+  <bean id="memberController" class="com.spring.member.controller.MemberControllerImpl">
+    <!--memberController 빈에 methodNameResolver 빈과 memberService 빈을 주입함-->
+    <property name="methodNameResolver">
+      <ref local="methodResolver"/>
+    </property>
+    <property name="memberService" ref="memberService"/>
+  </bean>
+
+
+  <!--
+  PropertiesMethodNameResolver 클래스를 사용하여 URL 요청에 대한 메서드 매핑을 정의합니다.
+	예를 들어, /member/listMembers.do URL 요청이 들어오면 listMembers 메서드가 호출됩니다.
+	이 설정은 컨트롤러의 여러 메서드를 한 클래스에 정의할 때 사용됩니다.
+-->
+  <bean id="methodResolver"
+    class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+    <property name="mappings">
+      <props>
+        <!--URL 요청에 대해 동일한 이름의 메소드를 호출하도록 설정-->
+        <prop key="/member/listMembers.do">listMembers</prop>
+        <prop key="/member/addMember.do">addMember</prop>
+        <prop key="/member/memberForm.do">memberForm</prop>
+        <prop key="/member/memberDetail.do">memberDetail</prop>
+      </props>
+    </property>
+  </bean>
+
+  <!--
+  이 빈은 SimpleUrlHandlerMapping을 사용하여 URL 패턴과 컨트롤러를 매핑합니다.
+	예를 들어, /member/로 시작하고 .do로 끝나는 모든 URL 요청은 memberController에 의해 처리됩니다.-->
+  <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+      <props>
+        <prop key="/member/*.do">memberController</prop>
+      </props>
+    </property>
+  </bean>
+</beans>

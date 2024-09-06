@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  id="WebApp_ID" version="3.1">
+
+  <!--여러 설정 파일을 읽어들이기 위해 스프링의 ContextLoaderListener 를 설정-->
+  <!--Spring의 ContextLoaderListener를 설정하여 애플리케이션의 여러 설정 파일을 로드할 수 있도록 합니다.
+  이 리스너는 웹 애플리케이션이 시작될 때 Spring의 ApplicationContext를 초기화하고 종료 시 컨텍스트를 정리합니다.-->
+  <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener>
+
+  <!--
+  context-param 요소를 통해 ContextLoaderListener가 로드할 Spring 설정 파일의 위치를 지정합니다.
+  /WEB-INF/config/ 디렉토리에 있는 action-service.xml과 action-dataSource.xml 파일을 로드하게 됩니다.-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <!--애플리케이션 실행 시 ContextLoaderListener 로 해당 위치의 설정 파일을 읽어들입니다.-->
+    <param-value>
+      /WEB-INF/config/action-service.xml
+      /WEB-INF/config/action-dataSource.xml
+    </param-value>
+  </context-param>
+
+  <!--Spring MVC의 핵심 서블릿인 DispatcherServlet을 설정합니다.
+  이 서블릿은 요청을 처리하고 컨트롤러로 전달하는 역할을 합니다.
+  -->
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app>
