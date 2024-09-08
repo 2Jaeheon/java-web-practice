@@ -2,6 +2,7 @@ package com.spring.ex04;
 
 import com.spring.ex01.MemberVO;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,6 +99,31 @@ public class MemberServlet extends HttpServlet {
         } else if (action.equals("deleteMember")) {
             String id = request.getParameter("id");
             dao.deleteMember(id);
+            nextPage = "/mem4.do?action=listMembers";
+        } else if (action.equals("searchMember")) {
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            memberVO.setName(name);
+            memberVO.setEmail(email);
+            List<MemberVO> membersList = dao.searchMember(memberVO);
+            request.setAttribute("membersList", membersList);
+            nextPage = "test03/listMembers.jsp";
+        } else if (action.equals("foreachSelect")) {
+            List<String> nameList = new ArrayList<>();
+            nameList.add("홍길동");
+            nameList.add("차범근");
+            nameList.add("김유신");
+            List<String> membersList = dao.foreachSelect(nameList);
+            request.setAttribute("membersList", membersList);
+            nextPage = "test03/listMembers.jsp";
+
+
+        } else if (action.equals("foreachInsert")) {
+            List<MemberVO> memList = new ArrayList<>();
+            memList.add(new MemberVO("m1", "1234", "박길동", "m1@test.com"));
+            memList.add(new MemberVO("m2", "1234", "이길동", "m1@test.com"));
+            memList.add(new MemberVO("m3", "1234", "김길동", "m1@test.com"));
+            int result = dao.foreachInsert(memList);
             nextPage = "/mem4.do?action=listMembers";
         }
 

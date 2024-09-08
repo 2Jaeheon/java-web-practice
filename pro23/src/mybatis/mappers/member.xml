@@ -85,4 +85,102 @@
     where id = #{id}
     ]]>
   </delete>
+
+  <select id="searchMember" parameterType="memberVO" resultMap="memResult">
+    <![CDATA[
+    SELECT * FROM t_member
+    ]]>
+    <where>
+      <if test="name != '' and name != null">
+        name=#{name}
+      </if>
+      <if test="email != '' and email != null">
+        and email = #{email}
+      </if>
+    </where>
+    ORDER BY joinDate DESC
+  </select>
+  <!--
+      <![CDATA[
+      SELECT * FROM t_member
+      ]]>
+      <where>
+        <choose>
+          <when test="name != '' and name != null and email != '' and email != null">
+            name=#{name} and email=#{email>
+          </when>
+          <when test=name != '' and name != null>
+            name=#{name}
+          </when>
+          <when test="email != '' and email != null>
+            email=#{email}
+          </when>
+        </choose>
+      </where>
+      ORDER BY joinDate desc
+  -->
+
+  <select id="foreachSelect" resultMap="memResult" parameterType="java.util.Map">
+    <![CDATA[
+    SELECT * FROM t_member
+    ]]>
+
+    WHERE name IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    ORDER BY joinDate desc
+  </select>
+  <!--
+    <insert id="foreachInsert" parameterType="java.util.Map">
+      INSERT INTO t_member(id, pwd, name, email)
+      VALUES
+      <foreach item="item" collection="list">
+        (#{item.id},
+        #{item.pwd},
+        #{item.name},
+        #{item.email})
+      </foreach>
+    </insert>
+  -->
+
+  <insert id="foreachInsert" parameterType="java.util.Map">
+    <foreach item="item" collection="list" open="INSERT ALL" separator=" "
+      close="SELECT * FROM DUAL">
+      INTO t_member(id, pwd, name, email)
+      VALUES (#{item.id},
+      #{item.pwd},
+      #{item.name},
+      #{item.email})
+    </foreach>
+  </insert>
+
+  <sql id="a">
+    <![CDATA[
+    SEELCT
+    * FROM t_member
+    ]]>
+  </sql>
+
+  <select id="searchMem" parameterType="memberVO" resultType="memResult">
+    /*include 태그를 이용해서 공통 SQL문을 재사용*/
+    <include refid="a"/>
+
+    <where>
+      <choose>
+        <when test="name != '' and name != null and email != '' and email != null">
+          name=#{name} and email=#{email>
+        </when>
+        <when test="name!= '' and name != null">
+          name=#{name}
+        </when>
+
+        <when test="email != '' and email != null">
+          email=#{email}
+        </when>
+      </choose>
+    </where>
+    ORDER BY joinDate DESC
+  </select>
+
 </mapper>
