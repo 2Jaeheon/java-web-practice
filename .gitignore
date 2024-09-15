@@ -276,3 +276,4 @@ Servers
 *.classpath
 *.project
 /apache-tomcat-9.0.93
+.codiumai
