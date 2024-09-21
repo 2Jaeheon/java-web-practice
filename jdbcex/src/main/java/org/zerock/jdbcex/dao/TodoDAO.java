@@ -11,6 +11,7 @@ import org.zerock.jdbcex.domain.TodoVO;
 
 public class TodoDAO {
 
+    //try-with-resources문을 사용한 DB 사용
     public String getTime() {
         String now = null;
 
@@ -18,6 +19,7 @@ public class TodoDAO {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT now()");
             ResultSet resultSet = preparedStatement.executeQuery();) {
             resultSet.next();
+            //resultSet 의 행 번호는 1번부터 저장
             now = resultSet.getString(1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -26,16 +28,19 @@ public class TodoDAO {
         return now;
     }
 
+    //Cleanup 애너테이션을 사용한 DB사용
     public String getTime2() throws Exception {
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
         @Cleanup PreparedStatement preparedStatement = connection.prepareStatement("SELECT NOW()");
         @Cleanup ResultSet resultSet = preparedStatement.executeQuery();
 
         resultSet.next();
+        //resultSet의 행 번호는 1번부터 저장
         String now = resultSet.getString(1);
         return now;
     }
 
+    //데이터 추가
     public void insert(TodoVO vo) throws Exception {
         String sql = "INSERT INTO tbl_todo (title, dueDate, finished) VALUES (?, ?, ?)";
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
@@ -47,6 +52,7 @@ public class TodoDAO {
         preparedStatement.executeUpdate();
     }
 
+    //테이블 전체 조회
     public List<TodoVO> selectAll() throws Exception {
 
         String sql = "SELECT * FROM tbl_todo";
@@ -71,6 +77,7 @@ public class TodoDAO {
         return list;
     }
 
+    //선택한 행의 데이터 조회
     public TodoVO selectOne(Long tno) throws Exception {
         String sql = "SELECT * FROM tbl_todo WHERE tno = ?";
         @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
@@ -89,6 +96,7 @@ public class TodoDAO {
         return vo;
     }
 
+    //선택한 행의 정보 수정(title, dueDate, finished)
     public void updateOne(TodoVO todoVO) throws Exception {
         String sql = "UPDATE tbl_todo set title = ?, dueDate = ?, finished = ? WHERE tno = ?";
 
